@@ -37,3 +37,37 @@ plt.ylabel('Agricultural land (% of land area)')
 plt.show()
 
 print(year_ele_pro.describe())
+
+
+#plotting line graph year on year Trend of the Electricity production from coal sources (% of total) for these 7 countries
+
+plt.figure(figsize=(10,7),dpi=500)
+for i in range(len(countries)):
+plt.plot(year_ele_pro.index,year_ele_pro[countries[i]],label=countries[i])
+plt.legend(bbox_to_anchor=(1,1))
+plt.title('Trend of the Electricity production from coal sources')
+plt.xlabel('Year')
+plt.ylabel('Electricity production from coal sources (% of total)')
+plt.show()
+
+#plotting of grouped bar chart for Electricity production from coal sources (% of total) for different countries over the years
+
+cnty_ele_pro.plot(kind='bar')
+plt.title('Electricity production from coal sources')
+plt.xlabel('Countries')
+plt.ylabel('Electricity production from coal sources')
+plt.rcParams["figure.dpi"] = 1500
+plt.show()
+
+
+#plotting of grouped bar chart for Agricultural land (% of land area) for different countries over the years
+
+cnty_arg_lan.plot(kind='bar')
+plt.title('Agricultural land')
+plt.xlabel('Countries')
+plt.ylabel('Forest area (% of land area)')
+plt.rcParams["figure.dpi"] = 1500
+plt.show()
+
+print(year_arg_lan['Canada'])
+
