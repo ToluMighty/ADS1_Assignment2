@@ -41,6 +41,7 @@ print(year_ele_pro.describe())
 
 #plotting line graph year on year Trend of the Electricity production from coal sources (% of total) for these 7 countries
 
+
 plt.figure(figsize=(10,7),dpi=500)
 for i in range(len(countries)):
 plt.plot(year_ele_pro.index,year_ele_pro[countries[i]],label=countries[i])
@@ -70,4 +71,35 @@ plt.rcParams["figure.dpi"] = 1500
 plt.show()
 
 print(year_arg_lan['Canada'])
+
+#ploting of heatmap of Canada
+
+Canada = pd.DataFrame(
+{'Agricultural land': year_arg_lan['Canada'],
+'Elect prod from coal': year_ele_pro['Canada'],
+'Forest area': year_for_are['Canada']},
+['2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015'])
+
+print(Canada.corr())
+
+
+plt.figure(figsize=(8,5))
+sns.heatmap(Canada.corr(),annot=True,cmap='Reds')
+plt.title('Correlation heatmap Canada')
+plt.show()
+
+#ploting of heatmap of Mexico
+
+Mexico = pd.DataFrame(
+{'Agricultural land': year_arg_lan['Mexico'],
+'Elect prod from coal': year_ele_pro['Mexico'],
+'Forest area': year_for_are['Mexico']},
+['2005','2006','2007','2008','2009','2010','2011','2012','2013','2014','2015'])
+
+print(Mexico.corr())
+
+plt.figure(figsize=(8,5))
+sns.heatmap(Mexico.corr(),annot=True,cmap='Greens')
+plt.title('Correlation heatmap Mexico')
+plt.show()
 
