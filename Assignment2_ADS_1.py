@@ -25,7 +25,15 @@ cnty_for_are,year_for_are = solution(filename,countries,columns,indicators[2])
 print(year_arg_lan)
 
 
+#plotting line graph year on year Trend of the Agricultural land (% of land area) for these 7 countries
 
+plt.figure(figsize=(10,7),dpi=500)
+for i in range(len(countries)):
+plt.plot(year_arg_lan.index,year_arg_lan[countries[i]],label=countries[i])
+plt.legend(bbox_to_anchor=(1,1))
+plt.title('Trend of the Agricultural land')
+plt.xlabel('Year')
+plt.ylabel('Agricultural land (% of land area)')
+plt.show()
 
-
-
+print(year_ele_pro.describe())
